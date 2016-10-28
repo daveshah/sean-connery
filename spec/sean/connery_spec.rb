@@ -1,11 +1,20 @@
 require 'spec_helper'
 
-describe Sean::Connery do
-  it 'has a version number' do
-    expect(Sean::Connery::VERSION).not_to be nil
+class Stub
+  include Sean::Connery
+
+  def initialize(bar)
+    @bar = bar
   end
 
-  it 'does something useful' do
-    expect(false).to eq(true)
+  def foos
+  end
+end
+
+describe Sean::Connery do
+  subject { Stub.new }
+
+  it 'has seanified class methods' do
+    expect(subject.methods).to be []
   end
 end
