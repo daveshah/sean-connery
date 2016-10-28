@@ -1,4 +1,5 @@
 require "sean/connery/version"
+require 'pry'
 
 module Sean
   module Connery
@@ -9,6 +10,13 @@ module Sean
         owner = base.method(method).owner
         owner.send :alias_method, method.to_s.gsub('s','sh').to_sym, method
       end
+    end
+
+    def ping
+      result = super
+      undef ping
+      puts 'One. ping. only.'
+      result
     end
 
     module ClassMethods
