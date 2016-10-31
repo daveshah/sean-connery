@@ -9,10 +9,17 @@ module Sean
 
     def self.included(base)
       base.extend(ClassMethods)
-      # TODO - smarten up the replacement
-      base.methods.find_all { |m| m.to_s.include?('s') }.each do |method|
-        owner = base.method(method).owner
-        owner.send :alias_method, replace_s_sounds(method.to_s).to_sym, method
+    end
+
+    module ClassMethods
+      def new(*args, &block)
+        obj = super
+        obj.methods.find_all { |m| m.to_s.include?('s') }.each do |method|
+          owner = obj.method(method).owner
+          owner.send :alias_method,
+            Sean::Connery.replace_s_sounds(method.to_s).to_sym, method
+        end
+       obj
       end
     end
 
@@ -23,13 +30,12 @@ module Sean
       result
     end
 
-    module ClassMethods
-      # TODO - .new?
+    def self.aliash_the(base, method)
+      owner = base.method(method).owner
+      owner.send :alias_method, self.replace_s_sounds(method.to_s).to_sym, method
     end
 
-    private
-
-    def replace_s_sounds(str)
+    def self.replace_s_sounds(str)
       str.gsub(S_REGEX, '\1sh\3').gsub(C_REGEX, '\1sh\2').gsub('x', 'ksh').gsub(ESS_REGEX, '_esh\1')
     end
   end

@@ -4,11 +4,10 @@ require 'pry'
 class Stub
   include Sean::Connery
 
-  def initialize(bar)
-    @bar = bar
+  def foos
   end
 
-  def foos
+  def self.bars
   end
 end
 
@@ -16,8 +15,12 @@ end
 describe Sean::Connery do
   subject { Stub.new }
 
-  it 'has seanified class methods' do
-    expect(subject.methods).to be []
+  it 'has seanified instance methods' do
+    expect(subject.methods).to include(:foosh)
+  end
+
+  pending 'has seanified class methods' do
+    expect(subject.methods).to include(:barsh)
   end
 
   it 'can only ping once' do
