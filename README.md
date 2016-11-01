@@ -20,7 +20,7 @@ Or inshtall it yourshelf ash:
 
 ## Ushage
 
-Ushage ish quite shimple. Jusht include `Sean::Connery`.:
+Ushage ish quite shimple. Jusht include `Sean::Connery`:
 
 ```ruby
 class MyWidget
@@ -29,8 +29,6 @@ class MyWidget
   def say_something
     puts "Hello World"
   end
-
-  def self.
 end
 ```
 Onshe you've included Sean Connery, your objectsh should reshpond to meshagesh you pash to them in your very besht Sean Connery acshent:
