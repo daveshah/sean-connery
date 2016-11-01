@@ -38,7 +38,7 @@ Onshe you've included Sean Connery, your objectsh should reshpond to meshagesh y
 > widget = MyWidget.new
 > widget.say_something
 => "Hello World"
-> widget.shay_shomething
+> widget.shay_shomething  # Notishe the acshent. Shuch fun!
 => "Hello World"
 
 ```
