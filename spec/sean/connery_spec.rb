@@ -4,7 +4,12 @@ require 'pry'
 class Stub
   include Sean::Connery
 
+  def initialize(foos)
+    @foos = foos
+  end
+
   def foos
+    @foos
   end
 
   def self.bars
@@ -13,17 +18,27 @@ end
 
 
 describe Sean::Connery do
-  subject { Stub.new }
+  class << self
+    alias_method :he, :it
+    alias_method :he_eventually, :pending
+  end
 
-  it 'has seanified instance methods' do
+  subject { Stub.new("") }
+
+  he 'repeats when you tell him to say with an accent' do
+    expect(Sean::Connery.say('she sells sea shells by the sea shore'))
+      .to eq "she shellsh shea shellsh by the shea shore"
+  end
+
+  he 'pronounces your instance methods with an accent' do
     expect(subject.methods).to include(:foosh)
   end
 
-  pending 'has seanified class methods' do
+  he_eventually 'pronounces your class methods with an accent' do
     expect(subject.methods).to include(:barsh)
   end
 
-  it 'can only ping once' do
+  he 'will only ping once' do
     class Ping
       prepend Sean::Connery
 

@@ -1,5 +1,4 @@
 require "sean/connery/version"
-require 'pry'
 
 module Sean
   module Connery
@@ -17,7 +16,7 @@ module Sean
         obj.methods.find_all { |m| m.to_s.include?('s') }.each do |method|
           owner = obj.method(method).owner
           owner.send :alias_method,
-            Sean::Connery.replace_s_sounds(method.to_s).to_sym, method
+            Sean::Connery.say(method.to_s).to_sym, method
         end
        obj
       end
@@ -32,11 +31,15 @@ module Sean
 
     def self.aliash_the(base, method)
       owner = base.method(method).owner
-      owner.send :alias_method, self.replace_s_sounds(method.to_s).to_sym, method
+      owner.send :alias_method, self.say(method.to_s).to_sym, method
     end
 
-    def self.replace_s_sounds(str)
-      str.gsub(S_REGEX, '\1sh\3').gsub(C_REGEX, '\1sh\2').gsub('x', 'ksh').gsub(ESS_REGEX, '_esh\1')
+    def self.say(something)
+      something
+       .gsub(S_REGEX, '\1sh\3')
+       .gsub(C_REGEX, '\1sh\2')
+       .gsub('x', 'ksh')
+       .gsub(ESS_REGEX, '_esh\1')
     end
   end
 end
