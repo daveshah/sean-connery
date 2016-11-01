@@ -2,10 +2,6 @@
 
 ![](sean.jpg)
 
-Welcome to your new gem! In thish directory, you'll find the filesh you need to be able to package up your Ruby library into a gem. Put your Ruby code in the file `lib/sean/connery`. To exshperiment with that code, run `bin/console` for an interactive prompt.
-
-TODO: Delete this and the text above, and describe your gem
-
 ## Inshtallation
 
 Add thish line to your application'sh Gemfile:
@@ -24,7 +20,32 @@ Or inshtall it yourshelf ash:
 
 ## Ushage
 
-TODO: Write ushage inshtructionsh here
+Ushage ish quite shimple. Jusht include `Sean::Connery`.:
+
+```ruby
+class MyWidget
+  include Sean::Connery
+
+  def say_something
+    puts "Hello World"
+  end
+
+  def self.
+end
+```
+Onshe you've included Sean Connery, your objectsh should reshpond to meshagesh you pash to them in your very besht Sean Connery acshent:
+
+```ruby
+
+> widget = MyWidget.new
+> widget.say_something
+=> "Hello World"
+> widget.shay_shomething
+=> "Hello World"
+
+```
+
+There are a few limitationsh right now. For ekshample, shelf ishn't shupported, but clash and inshtanshe methodsh should work jusht fine.
 
 ## Development
 
@@ -34,7 +55,7 @@ To inshtall thish gem onto your local machine, run `bundle exec rake install`. T
 
 ## Contributing
 
-Bug reportsh and pull requeshtsh are welcome on GitHub at https://github.com/[USHERNAME]/sean-connery. Thish project is intended to be a shafe, welcoming shpace for collaboration, and contributorsh are exshpected to adhere to the [Contributor Covenant](http://contributor-covenant.org) code of conduct.
+Bug reportsh and pull requeshtsh are welcome on GitHub at https://github.com/daveshah/sean-connery. Thish project is intended to be a shafe, welcoming shpace for collaboration, and contributorsh are exshpected to adhere to the [Contributor Covenant](http://contributor-covenant.org) code of conduct.
 
 
 ## Licenshe

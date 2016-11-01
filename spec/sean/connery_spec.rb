@@ -16,7 +16,6 @@ class Stub
   end
 end
 
-
 describe Sean::Connery do
   class << self
     alias_method :he, :it
@@ -25,7 +24,7 @@ describe Sean::Connery do
 
   subject { Stub.new("") }
 
-  he 'repeats when you tell him to say with an accent' do
+  he 'says things with an accent' do
     expect(Sean::Connery.say('she sells sea shells by the sea shore'))
       .to eq "she shellsh shea shellsh by the shea shore"
   end
@@ -34,8 +33,8 @@ describe Sean::Connery do
     expect(subject.methods).to include(:foosh)
   end
 
-  he_eventually 'pronounces your class methods with an accent' do
-    expect(subject.methods).to include(:barsh)
+  he 'pronounces your class methods with an accent' do
+    expect(subject.class.methods).to include(:barsh)
   end
 
   he 'will only ping once' do
