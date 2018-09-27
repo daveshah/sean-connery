@@ -4,10 +4,10 @@ $LOAD_PATH.unshift(lib) unless $LOAD_PATH.include?(lib)
 require 'sean/connery/version'
 
 Gem::Specification.new do |spec|
-  spec.name          = "sean-connery"
-  spec.version       = Sean::Connery::VERSION
-  spec.authors       = ["Dave Shah"]
-  spec.email         = ["david.a.shah@gmail.com"]
+   spec.name          = "sean-connery"
+   spec.version       = Sean::Connery::VERSION
+   spec.authors       = ["Dave Shah", "Jonah Roth", "Graham Conzett"]
+   spec.email         = ["david.a.shah@gmail.com"]
 
    spec.summary       = %q{This gem makes everything shpeshial}
    spec.description   = %q{Yep, shpeshial}
